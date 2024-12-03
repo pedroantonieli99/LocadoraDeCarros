@@ -1,0 +1,103 @@
+/* Container Geral para o Formulário de Locação */
+.form-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff; /* Fundo branco para maior contraste */
+  color: #333; /* Texto escuro */
+  font-family: 'Poppins', sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra leve */
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  font-size: 28px; /* Título maior */
+  margin-bottom: 30px;
+  color: #27ae60; /* Verde vibrante */
+  letter-spacing: 1px;
+}
+
+/* Estilo para os Campos do Formulário */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #495057; /* Texto cinza-escuro */
+}
+
+select, input {
+  padding: 15px;
+  background-color: #f8f9fa; /* Fundo claro para inputs */
+  border: 1px solid #ced4da; /* Borda leve */
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  color: #495057;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+select:hover, input:hover {
+  border-color: #27ae60; /* Destaque na borda ao passar o mouse */
+}
+
+input[type="number"] {
+  width: 100%;
+}
+
+/* Exibição do Valor Total */
+.valor-total strong {
+  font-size: 22px; /* Texto maior para valor total */
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #3b9b23; /* Destaque em laranja */
+  font-weight: bold;
+}
+
+/* Botão de Envio */
+.submit-button {
+  padding: 15px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #27ae60; /* Verde vibrante */
+  color: #ffffff;
+  border: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.submit-button:hover {
+  background-color: #229954; /* Verde mais escuro no hover */
+}
+
+/* Ajuste de Responsividade */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  select, input {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    font-size: 16px;
+  }
+}

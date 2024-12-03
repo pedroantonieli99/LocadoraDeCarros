@@ -1,0 +1,56 @@
+<div class="lista-locacoes-container" style="background-color: #28293e; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);">
+  <h2 style="color: #ff6f61; text-align: center; font-size: 2.5em; margin-bottom: 20px;">Lista de Locações</h2>
+  
+  <table style="width: 100%; border-collapse: separate; border-spacing: 0 15px;">
+    <thead>
+      <tr style="background-color: #3b3b52; color: #f0f0f0; font-size: 1.2em; text-align: left; padding: 12px;">
+        <th style="padding: 12px; border-radius: 8px 0 0 8px;">Nome Do Cliente</th>
+        <th style="padding: 12px;">Carro Utilizado</th>
+        <th style="padding: 12px;">Marca do Carro</th>
+        <th style="padding: 12px;">Placa do Carro</th>
+        <th style="padding: 12px;">Quantidade de Dias</th>
+        <th style="padding: 12px;">Valor Total</th>
+        <th style="padding: 12px; text-align: center; border-radius: 0 8px 8px 0;">Edição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let locacao of locacoes; let i = index" style="background-color: #3b3b52; color: #f0f0f0; font-size: 1.1em; border-radius: 8px; padding: 10px;">
+        <td *ngIf="locacaoEditada?.index !== i" style="padding: 12px;">{{ locacao.cliente.nome }}</td>
+        <td *ngIf="locacaoEditada?.index === i" style="padding: 12px;">
+          <input [(ngModel)]="locacaoEditada.cliente.nome" style="width: 100%; padding: 12px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em; border: 1px solid #fff;" />
+        </td>
+
+        <td *ngIf="locacaoEditada?.index !== i" style="padding: 12px;">{{ locacao.filme.nome }}</td>
+        <td *ngIf="locacaoEditada?.index === i" style="padding: 12px;">
+          <input [(ngModel)]="locacaoEditada.filme.nome" style="width: 100%; padding: 12px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em; border: 1px solid #fff;" />
+        </td>
+
+        <td *ngIf="locacaoEditada?.index !== i" style="padding: 12px;">{{ locacao.filme.marca }}</td>
+        <td *ngIf="locacaoEditada?.index === i" style="padding: 12px;">
+          <input [(ngModel)]="locacaoEditada.filme.marca" style="width: 100%; padding: 12px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em; border: 1px solid #fff;" />
+        </td>
+
+        <td *ngIf="locacaoEditada?.index !== i" style="padding: 12px;">{{ locacao.filme.placa }}</td>
+        <td *ngIf="locacaoEditada?.index === i" style="padding: 12px;">
+          <input [(ngModel)]="locacaoEditada.filme.placa" style="width: 100%; padding: 12px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em; border: 1px solid #fff;" />
+        </td>
+
+        <td *ngIf="locacaoEditada?.index !== i" style="padding: 12px;">{{ locacao.quantidadeDias }}</td>
+        <td *ngIf="locacaoEditada?.index === i" style="padding: 12px;">
+          <input [(ngModel)]="locacaoEditada.quantidadeDias" style="width: 100%; padding: 12px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em; border: 1px solid #fff;" />
+        </td>
+
+        <td *ngIf="locacaoEditada?.index !== i" style="padding: 12px;">R$ {{ locacao.valorTotal }}</td>
+        <td *ngIf="locacaoEditada?.index === i" style="padding: 12px;">
+          <input [(ngModel)]="locacaoEditada.valorTotal" style="width: 100%; padding: 12px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em; border: 1px solid #fff;" />
+        </td>
+
+        <td style="padding: 12px; text-align: center;">
+          <button (click)="excluirLocacao(i)" class="delete-button" style="background-color: #ff6f61; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; width: 100%;">Excluir</button>
+          <button *ngIf="locacaoEditada?.index !== i" (click)="editarLocacao(i)" class="edit-button" style="background-color: #ff9e61; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; width: 100%;">Editar</button>
+          <button *ngIf="locacaoEditada?.index === i" (click)="salvarEdicao()" class="save-button" style="background-color: #6eff61; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; width: 100%;">Salvar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

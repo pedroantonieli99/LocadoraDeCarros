@@ -1,0 +1,59 @@
+<div class="container" style="font-family: 'Courier New', monospace; color: #f0f0f0; margin: 0 auto; width: 90%; padding: 30px; background: #1e1e2f; border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);">
+  <!-- Formulário de Cadastro -->
+  <div class="form-container" style="margin-bottom: 50px;">
+    <h2 style="color: #ff6f61; text-align: center; font-size: 2em; text-transform: uppercase;">Novo Cliente</h2>
+    <form (ngSubmit)="cadastrarCliente()" style="padding: 20px; background: #28293e; border-radius: 12px; box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5);">
+      <div class="form-group" style="margin-bottom: 20px;">
+        <label for="nome" style="display: block; font-size: 1.2em; color: #ff6f61;">Nome:</label>
+        <input type="text" id="nome" [(ngModel)]="nome" name="nome" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: #3b3b52; color: #f0f0f0; font-size: 1em;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 20px;">
+        <label for="telefone" style="display: block; font-size: 1.2em; color: #ff6f61;">Telefone:</label>
+        <input type="text" id="telefone" [(ngModel)]="telefone" name="telefone" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: #3b3b52; color: #f0f0f0; font-size: 1em;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 20px;">
+        <label for="endereco" style="display: block; font-size: 1.2em; color: #ff6f61;">Endereço:</label>
+        <input type="text" id="endereco" [(ngModel)]="endereco" name="endereco" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: #3b3b52; color: #f0f0f0; font-size: 1em;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 20px;">
+        <label for="cidade" style="display: block; font-size: 1.2em; color: #ff6f61;">Cidade:</label>
+        <input type="text" id="cidade" [(ngModel)]="cidade" name="cidade" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: #3b3b52; color: #f0f0f0; font-size: 1em;" />
+      </div>
+
+      <button type="submit" style="width: 100%; padding: 15px; background: linear-gradient(90deg, #ff6f61, #ff9e61); color: #fff; border: none; border-radius: 10px; font-size: 1.2em; text-transform: uppercase; cursor: pointer;">Fazer Cadastro</button>
+    </form>
+  </div>
+
+  <div class="clientes-list" style="font-family: 'Roboto', sans-serif; margin: 40px auto; max-width: 1000px; border-radius: 16px; overflow: hidden; background-color: #fefefe; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);">
+    <h2 style="background-color: #2d4059; color: #fdfdfd; text-align: center; font-size:1em; font-weight: 700; padding: 20px 0; letter-spacing: 2px; text-transform: uppercase;">
+      Gerenciamento de Clientes
+    </h2>
+    <table style="width: 100%; border-collapse: collapse; overflow: hidden;">
+      <thead>
+        <tr style="background-color: #2d4059; color: #fdfdfd; font-size: 1em; text-transform: uppercase; text-align: left;">
+          <th style="padding: 20px;">Nome</th>
+          <th style="padding: 20px;">Telefone</th>
+          <th style="padding: 20px;">Endereço</th>
+          <th style="padding: 20px;">Cidade</th>
+          <th style="padding: 20px; text-align: center;">Edição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes; let i = index" style="background-color: #f8f9fa; color: #333; font-size: 1em; border-bottom: 1px solid #e6e6e6;">
+          <td style="padding: 15px;">{{ cliente.nome }}</td>
+          <td style="padding: 15px;">{{ cliente.telefone }}</td>
+          <td style="padding: 15px;">{{ cliente.endereco }}</td>
+          <td style="padding: 15px;">{{ cliente.cidade }}</td>
+          <td style="padding: 15px; text-align: center;">
+            <button style="background: #4caf50; color: white; padding: 10px 15px; border: none; border-radius: 8px; font-size: 0.9em; cursor: pointer; transition: all 0.3s ease; margin-right: 10px;" (click)="editarCliente(i)">
+              Editar
+            </button>
+            <button style="background: #e74c3c; color: white; padding: 10px 15px; border: none; border-radius: 8px; font-size: 0.9em; cursor: pointer; transition: all 0.3s ease;" (click)="excluirCliente(i)">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

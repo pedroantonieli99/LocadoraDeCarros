@@ -1,0 +1,29 @@
+<div class="form-container" style="background-color: #28293e; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);">
+    <h2 style="color: #ff6f61; text-align: center; font-size: 2em;">Fazer a Alocação</h2>
+  
+    <div class="form-group" style="margin-bottom: 20px;">
+        <label for="cliente" style="color: #f0f0f0; font-size: 1.2em;">Nome Do Cliente:</label>
+        <select id="cliente" [(ngModel)]="clienteSelecionado" required style="width: 100%; padding: 10px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em;">
+            <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{ cliente.nome }}</option>
+        </select>
+    </div>
+  
+    <div class="form-group" style="margin-bottom: 20px;">
+        <label for="filme" style="color: #f0f0f0; font-size: 1.2em;">Selecione o Carro a Ser Usado:</label>
+        <select id="filme" [(ngModel)]="filmeSelecionado" required style="width: 100%; padding: 10px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em;">
+            <option *ngFor="let filme of filmes" [ngValue]="filme">{{ filme.nome }}</option>
+        </select>
+    </div>
+  
+    <div class="form-group" style="margin-bottom: 20px;">
+        <label for="dias" style="color: #f0f0f0; font-size: 1.2em;">Dias Alocados:</label>
+        <input type="number" id="dias" [(ngModel)]="quantidadeDias" (change)="calcularValorTotal()" min="1" required style="width: 100%; padding: 10px; border-radius: 8px; background-color: #3b3b52; color: #f0f0f0; font-size: 1em;" />
+    </div>
+  
+    <div class="form-group valor-total" style="margin-bottom: 20px;">
+        <strong style="color: #ff6f61; font-size: 1.5em;">Valor Total Da Locação: R$ {{ valorTotal }}</strong>
+    </div>
+  
+    <button (click)="fazerLocacao()" class="submit-button" style="width: 100%; padding: 15px; background: linear-gradient(90deg, #ff6f61, #ff9e61); color: #fff; border: none; border-radius: 10px; font-size: 1.2em; cursor: pointer;">Locar o Carro</button>
+  </div>
+  
